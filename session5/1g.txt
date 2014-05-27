@@ -1,0 +1,21 @@
+CREATE TABLE Bestelling ( isbn int, aantal int, PRIMARY KEY(isbn), FOREIGN KEY(isbn) REFERENCES boek(isbn));
+
+CREATE FUNCTION addBoek() 
+RETURNS TRIGGER
+AS $$ BEGIN
+	IF( 1 = (SELECT COUNT(auteur) FROM boek WHERE NEW.auteur = boek.auteur)) THEN
+	INSERT INTO bestelling (isbn, aantal) VALUES (NEW.isbn, 0);
+	END IF;
+RETURN NEW;
+END;
+$$
+LANGUAGE plpgsql;
+
+
+CREATE TRIGGER addBoek AFTER INSERT ON boek
+FOR EACH ROW EXECUTE PROCEDURE addBoek();
+
+
+INSERT INTO boek (isbn, titel, auteur)
+VALUES (570, '5', '1a');
+	
