@@ -1,0 +1,5 @@
+INSERT INTO boek (isbn, titel, auteur)
+VALUES (1, 'jeroen go suck a dick', 'jeroen');
+
+INSERT INTO boek (isbn, titel, auteur)
+VALUES (1, 'sorry voor de eerste titel', 'niels');	

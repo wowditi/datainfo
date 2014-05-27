@@ -1,0 +1,5 @@
+INSERT INTO exemplaar (isbn, volgnummer, gewicht, kast)
+VALUES (2, 1, 5, '1a');
+
+INSERT INTO exemplaar (isbn, volgnummer, gewicht, kast)
+VALUES (1, 1, 5, '1a');
